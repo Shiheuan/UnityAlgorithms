@@ -1,27 +1,39 @@
 ﻿using System;
 using NUnit.Framework;
-using UnityEngine;
 
 namespace Algorithms.Foundations
 {
     public class TestFixedCapacityStack
     {
-        [Test]
-        public void TestFixedCapacityStackUsage()
+        private class FakeGameObject
         {
-            IFixedCapacityStack<GameObject> a;
-            a = new FixedCapacityStack<GameObject>(10);
-            a.push(new GameObject("first"));
-            Assert.AreEqual("first", a.pop().name);
+            public string Name { get; set; }
+
+            public FakeGameObject(string name)
+            {
+                this.Name = name;
+            }
+        }
+        [Test]
+        public void FixedCapacityStack_PushAndPopFakeGameObject_TheSameName()
+        {
+            IFixedCapacityStack<FakeGameObject> a = new FixedCapacityStack<FakeGameObject>(10);
+
+            a.push(new FakeGameObject("first"));
+
+            var res = a.pop();
+
+            Assert.AreEqual("first", res.Name);
         }
 
         [Test]
-        public void TestFixedCapacityStackOverflow()
+        public void FixedCapacityStack_AddMoreItems_ResultsOverflow()
         {
-            IFixedCapacityStack<GameObject> a;
-            a = new FixedCapacityStack<GameObject>(1);
-            a.push(new GameObject("first"));
-            Assert.That(()=>a.push(new GameObject("second")),
+            IFixedCapacityStack<FakeGameObject> a = new FixedCapacityStack<FakeGameObject>(1);
+
+            a.push(new FakeGameObject("first"));
+
+            Assert.That(()=>a.push(new FakeGameObject("second")),
                 Throws.TypeOf<IndexOutOfRangeException>());
         }
     }
