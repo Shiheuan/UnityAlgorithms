@@ -6,9 +6,14 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var stack = new FixedCapacityCapacityStackOfStrings(1);
-        stack.push("shiheuan");
-        print(stack.pop());
+        var bag = new Bag<object>();
+        bag.add(new object());
+        bag.add(new object());
+        bag.add(new object());
+        foreach (var v in bag)
+        {
+            print(v);
+        }
     }
 
     // Update is called once per frame
