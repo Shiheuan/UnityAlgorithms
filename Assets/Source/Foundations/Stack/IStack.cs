@@ -1,6 +1,8 @@
-﻿namespace Algorithms.Foundations
+﻿using System.Collections;
+
+namespace Algorithms.Foundations
 {
-    public interface IStack<T>
+    public interface IStack<T>:IEnumerable
     {
         void push(T item);
         T pop();

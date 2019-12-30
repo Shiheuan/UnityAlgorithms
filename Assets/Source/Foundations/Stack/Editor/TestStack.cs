@@ -16,6 +16,23 @@ namespace Algorithms.Foundations
 
             Assert.AreSame(ob, res);
         }
+
+        [Test]
+        public void Stack_Push2IterableGetItem_GetFirstAdd()
+        {
+            IStack<object> a = new Stack<object>();
+            var ob = new object();
+            a.push(ob);
+            a.push(new object());
+
+            object res = null;
+            foreach (var o in a)
+            {
+                res = o;
+            }
+            
+            Assert.AreSame(ob, res);
+        }
     }
 }
 

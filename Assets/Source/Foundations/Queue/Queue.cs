@@ -1,4 +1,6 @@
-﻿namespace Algorithms.Foundations
+﻿using System.Collections;
+
+namespace Algorithms.Foundations
 {
     public class Queue<T> : IQueue<T>
     {
@@ -45,6 +47,52 @@
         public int size()
         {
             return N;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return new Iterator(this);
+        }
+
+        private class Iterator : IEnumerator
+        {
+            private readonly Queue<T> parent;
+            private Node<T> current;
+
+            public Iterator(Queue<T> parent)
+            {
+                this.parent = parent;
+                current = new Node<T>
+                {
+                    next = parent.first
+                };
+            }
+
+            public bool MoveNext()
+            {
+                current = current.next;
+
+                return current != null;
+            }
+
+            public void Reset()
+            {
+                if (this.parent != null)
+                    current.next = this.parent.first;
+            }
+
+            public object Current
+            {
+                get
+                {
+                    if (current.item != null)
+                    {
+                        return current.item;
+                    }
+
+                    return null;
+                }
+            }
         }
     }
 

@@ -16,6 +16,23 @@ namespace Algorithms.Foundations
 
             Assert.AreSame(ob, res);
         }
+
+        [Test]
+        public void Queue_Enqueue2IterableGetItem_GetLastAdd()
+        {
+            IQueue<object> a = new Queue<object>();
+            var ob = new object();
+            a.enqueue(new object());
+            a.enqueue(ob);
+
+            object res = null;
+            foreach (var o in a)
+            {
+                res = o;
+            }
+
+            Assert.AreSame(res, ob);
+        }
     }
 }
 
