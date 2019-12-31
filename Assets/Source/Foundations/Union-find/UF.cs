@@ -3,6 +3,7 @@
     public class UF : IUF
     {
         private int[] id;
+        private int[] sz;
         private int N;
 
         public UF(int n)
@@ -13,6 +14,11 @@
             {
                 id[i] = i;
             }
+            sz = new int[n];
+            for (var i = 0; i < N; i++)
+            {
+                sz[i] = 1;
+            }
         }
         public void union(int p, int q)
         {
@@ -22,7 +28,16 @@
 
             if (pId == qId) return;
 
-            id[pId] = qId;
+            if (sz[pId] < sz[qId])
+            {
+                id[pId] = qId;
+                sz[qId] += sz[pId];
+            }
+            else
+            {
+                id[qId] = pId;
+                sz[pId] += sz[qId];
+            }
 
             N--;
         }
