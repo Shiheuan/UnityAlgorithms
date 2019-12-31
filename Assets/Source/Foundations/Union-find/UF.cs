@@ -16,25 +16,25 @@
         }
         public void union(int p, int q)
         {
+            // get root
             var pId = find(p);
             var qId = find(q);
 
             if (pId == qId) return;
 
-            for (var i = 0; i < id.Length; i++)
-            {
-                if (id[i] == pId)
-                {
-                    id[i] = qId;
-                }
-            }
+            id[pId] = qId;
 
             N--;
         }
 
         public int find(int p)
         {
-            return id[p];
+            while (id[p] != p)
+            {
+                p = id[p];
+            }
+
+            return p;
         }
 
         public bool connected(int p, int q)
