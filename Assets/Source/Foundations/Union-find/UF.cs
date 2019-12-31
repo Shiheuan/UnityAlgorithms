@@ -44,12 +44,22 @@
 
         public int find(int p)
         {
-            while (id[p] != p)
+            int root, i, j;
+            root = p;
+            while (id[root] != root)
             {
-                p = id[p];
+                root = id[root];
             }
 
-            return p;
+            i = p;
+            while (i != root)
+            {
+                j = id[i];
+                id[i] = root;
+                i = j;
+            }
+
+            return root;
         }
 
         public bool connected(int p, int q)
