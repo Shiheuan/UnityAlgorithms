@@ -16,19 +16,20 @@
         }
         public void union(int p, int q)
         {
-            if (!connected(p, q))
-            {
-                if (id[p] <= id[q])
-                {
-                    id[q] = id[p];
-                }
-                else
-                {
-                    id[p] = id[q];
-                }
+            var pId = find(p);
+            var qId = find(q);
 
-                N--;
+            if (pId == qId) return;
+
+            for (var i = 0; i < id.Length; i++)
+            {
+                if (id[i] == pId)
+                {
+                    id[i] = qId;
+                }
             }
+
+            N--;
         }
 
         public int find(int p)
