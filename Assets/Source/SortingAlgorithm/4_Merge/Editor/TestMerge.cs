@@ -11,6 +11,14 @@ namespace Algorithms.Sorting
             Merge.sort(s);
             Assert.True(BaseSort.isSorted(s));
         }
+
+        [Test]
+        public void MergeBottomUpSort_InputStringArray_AscendingOrder()
+        {
+            string[] s = { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" };
+            Merge_BottomUp.sort(s);
+            Assert.True(BaseSort.isSorted(s));
+        }
     }
 }
 

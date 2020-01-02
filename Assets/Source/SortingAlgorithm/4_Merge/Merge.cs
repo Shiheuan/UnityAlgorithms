@@ -4,7 +4,7 @@ namespace Algorithms.Sorting
 {
     public class Merge : BaseSort
     {
-        private static IComparable[] aux;
+        protected static IComparable[] aux;
 
         public static void sort(IComparable[] a)
         {
@@ -21,7 +21,7 @@ namespace Algorithms.Sorting
             merge(a, lo, mid, hi);
         }
 
-        private static void merge(IComparable[] a, int lo, int mid, int hi)
+        protected static void merge(IComparable[] a, int lo, int mid, int hi)
         {
             int i = lo, j = mid + 1;
 
