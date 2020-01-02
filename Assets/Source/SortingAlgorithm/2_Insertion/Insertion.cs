@@ -9,11 +9,15 @@ namespace Algorithms.Sorting
             int N = a.Length;
             for (var i = 1; i < N; i++)
             {
-                for (var j = i; j > 0 && less(a[j], a[j - 1]); j--)
+                int j = i;
+                var t = a[i];
+                for (; j > 0 && less(t, a[j - 1]); j--)
                 {
-                    // exchange every step.
-                    exch(a, j, j-1);
+                    // move element
+                    a[j] = a[j - 1];
                 }
+
+                a[j] = t;
             }
         }
     }
