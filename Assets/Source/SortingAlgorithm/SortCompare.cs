@@ -18,7 +18,8 @@ namespace Algorithms.Sorting
                     Selection.sort(a);
                     break;
                 case "Shell":
-                    throw new NotImplementedException();
+                    Shell.sort(a);
+                    break;
                 case "Merge":
                     throw new NotImplementedException();
                 case "Quick":
