@@ -7,11 +7,11 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string alg2 = "Shell";
-        string alg1 = "Insertion";
+        string alg1 = "Shell";
+        string alg2 = "Merge";
 
-        int N = 1024;
-        int T = 1000;
+        int N = 10000;
+        int T = 100;
 
         double t1 = SortCompare.timeRandomInput(alg1, N, T);
         double t2 = SortCompare.timeRandomInput(alg2, N, T);
