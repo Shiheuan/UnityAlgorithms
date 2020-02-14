@@ -7,7 +7,7 @@ namespace Algorithms.Sorting
         [Test]
         public void swim_add123_MaxIs3()
         {
-            var pq = new MaxPQ<double>(5);
+            var pq = new MaxPriorityQueue<double>(5);
             pq.insert(1);
             pq.insert(2);
             pq.insert(3);

@@ -4,12 +4,12 @@ using UnityScript.Macros;
 
 namespace Algorithms.Sorting
 {
-    public class MaxPQ<T> where T : IComparable<T>
+    public class MaxPriorityQueue<T> where T : IComparable<T>
     {
         private T[] pq;
         private int N;
 
-        public MaxPQ(int maxN)
+        public MaxPriorityQueue(int maxN)
         {
             pq = new T[maxN];
         }

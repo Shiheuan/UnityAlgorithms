@@ -6,7 +6,7 @@ namespace Algorithms.Sorting
     public class TestHeap
     {
         [Test]
-        public void sort_InputStringArray_ConstructHeap()
+        public void MaxPQ_InputStringArray_ConstructHeap()
         {
             string[] s = { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" };
             MaxPQ<string> pq = new MaxPQ<string>(s);
@@ -14,12 +14,21 @@ namespace Algorithms.Sorting
         }
 
         [Test]
-        public void sort_InputStringArray_DelMaxSink()
+        public void MaxPQ_InputStringArray_DelMaxSink()
         {
             string[] s = { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" };
             MaxPQ<string> pq = new MaxPQ<string>(s);
             pq.delMax();
             Assert.AreEqual(pq.max(), "T");
+        }
+
+        [Test]
+        public void HeapSort_InputStringArray_AscendingOrder()
+        {
+            string[] s = { "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" };
+            HeapSort.sort(s);
+            UnityEngine.Debug.Log(s);
+            Assert.True(BaseSort.isSorted(s));
         }
     }
 }
