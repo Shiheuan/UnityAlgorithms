@@ -1,4 +1,6 @@
-﻿namespace Algorithms.Search
+﻿using System.Collections.Generic;
+
+namespace Algorithms.Search
 {
     public class LinearProbingHashST<TKey, TValue>
     {
@@ -101,6 +103,22 @@
 
             N--;
             if (N > 0 && N == M/8) resize(M/2);
+        }
+
+        public int size()
+        {
+            return N;
+        }
+
+        public IEnumerable<TKey> allKeys()
+        {
+            Queue<TKey> queue = new Queue<TKey>();
+            for (int i = 0; i < keys.Length; i++)
+            {
+                if (keys[i] != null)
+                    queue.Enqueue(keys[i]);
+            }
+            return queue;
         }
     }
 }

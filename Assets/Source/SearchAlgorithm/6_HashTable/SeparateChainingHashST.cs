@@ -32,6 +32,12 @@
         {
             st[hash(key)].put(key, val);
         }
+
+        public int size()
+        {
+            // need to operate.
+            return N;
+        }
     }
 }
 
