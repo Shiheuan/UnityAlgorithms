@@ -58,6 +58,50 @@ namespace Algorithms.Graph
 
             return s;
         }
+
+        public static int degree(Graph G, int v)
+        {
+            int degree = 0;
+            foreach (int w in G.adj(v))
+            {
+                degree++;
+            }
+
+            return degree;
+        }
+
+        public static int maxDegree(Graph G)
+        {
+            int max = 0;
+            for (int i = 0; i < G.v(); i++)
+            {
+                if (degree(G, i) > max)
+                {
+                    max = degree(G, i);
+                }
+            }
+
+            return max;
+        }
+
+        public static double avgDegree(Graph G)
+        {
+            return 2.0 * G.e() / G.v();
+        }
+
+        public static int numberOfSelfLoops(Graph G)
+        {
+            int count = 0;
+            for (int i = 0; i < G.v(); i++)
+            {
+                foreach (int j in G.adj(i))
+                {
+                    if (i == j) count++;
+                }
+            }
+
+            return count / 2;
+        }
     }
 }
 
