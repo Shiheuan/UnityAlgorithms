@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Algorithms.Foundations;
 
 namespace Algorithms.Graph
@@ -39,6 +40,11 @@ namespace Algorithms.Graph
         public Bag<int> adj(int v)       
         {
             // convert Bag<int> to IEnumerable<int>
+            return Adj[v];
+        }
+
+        public IEnumerable adj2(int v)
+        {
             return Adj[v];
         }
 
