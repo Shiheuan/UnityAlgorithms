@@ -40,6 +40,15 @@ namespace Algorithms.Graph
             var res = dfs.marked(5);
             Assert.True(res);
         }
+
+        [Test]
+        public void DFS_hasCycle_true()
+        {
+            var g = initGraph();
+            var c = new dfsCycle(g);
+            var res = c.getHasCycle();
+            Assert.True(res);
+        }
     }
 }
 
