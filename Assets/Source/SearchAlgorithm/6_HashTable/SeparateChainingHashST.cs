@@ -1,6 +1,8 @@
-﻿namespace Algorithms.Search
+﻿using System;
+
+namespace Algorithms.Search
 {
-    public class SeparateChainingHashST<TKey, TValue>
+    public class SeparateChainingHashST<TKey, TValue> where TValue : IComparable
     {
         private int N; // 键值对总数
         private int M; // 散列表的大小

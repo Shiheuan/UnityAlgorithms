@@ -105,6 +105,11 @@ namespace Algorithms.Search
             return get(key) != null;
         }
 
+        public IEnumerable<TKey> allkeys()
+        {
+            return allkeys(min(), max());
+        }
+
         public IEnumerable<TKey> allkeys(TKey lo, TKey hi)
         {
             Queue<TKey> q = new Queue<TKey>();

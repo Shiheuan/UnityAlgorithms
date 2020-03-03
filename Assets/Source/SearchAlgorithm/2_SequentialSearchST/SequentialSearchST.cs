@@ -1,6 +1,9 @@
-﻿namespace Algorithms.Search
+﻿using System;
+using System.Collections.Generic;
+
+namespace Algorithms.Search
 {
-    public class SequentialSearchST<TKey, TValue>
+    public class SequentialSearchST<TKey, TValue> where TValue : IComparable
     {
         private Node first;
         private int N;
@@ -65,7 +68,9 @@
         }
         public bool contains(TKey key)
         {
-            return get(key) != null;
+            TValue def = default(TValue);
+            return get(key).CompareTo(def) != 0; // if TValue is not reference type, this is always true. 
+            //return get(key) != null;
         }
 
         public bool isEmpty()
@@ -76,6 +81,16 @@
         public int size()
         {
             return N;
+        }
+
+        public IEnumerable<TKey> allkeys()
+        {
+            Queue<TKey> q = new Queue<TKey>();
+            for (Node x = first; x != null; x = x.next)
+            {
+                q.Enqueue(x.key);
+            }
+            return q;
         }
     }
 }

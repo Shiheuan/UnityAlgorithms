@@ -40,6 +40,10 @@ public class Main : MonoBehaviour
         var cc = new ConnectedComponent(g);
         print(cc.getCount());
 
+        string str = "jfk,mco\nord,den\nord,hou\ndfw,phx\njfk,atl\nord,dfw\nord,phx\natl,hou\nden,phx\nphx,lax\njfk,ord\nden,las\ndfw,hou\nord,atl\nlas,lax\natl,mco\nhou,mco\nlas,phx";
+        //print(str);
+        var sg = new SymbolGraph(str, ',');
+
     }
 
     // Update is called once per frame
