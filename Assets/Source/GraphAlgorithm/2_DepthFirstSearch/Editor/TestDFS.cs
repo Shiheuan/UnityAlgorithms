@@ -49,6 +49,15 @@ namespace Algorithms.Graph
             var res = c.getHasCycle();
             Assert.True(res);
         }
+
+        [Test]
+        public void DFS_isBipartite_false()
+        {
+            var g = initGraph();
+            var c = new dfsTwoColor(g);
+            var res = c.isBipartite();
+            Assert.False(res);
+        }
     }
 }
 
