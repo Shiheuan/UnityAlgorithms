@@ -41,9 +41,9 @@ namespace Algorithms.Graph
             return E;
         }
 
-        public IDigraph reverse()
+        public Digraph reverse()
         {
-            IDigraph R = new Digraph(V);
+            Digraph R = new Digraph(V);
             for (int i = 0; i < V; i++)
             {
                 foreach (int j in adj(i))

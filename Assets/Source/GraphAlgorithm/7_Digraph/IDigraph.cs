@@ -8,7 +8,7 @@ namespace Algorithms.Graph
         int e();
         void addEdge(int v, int w);
         Bag<object> adj(int v);
-        IDigraph reverse();
+        //IDigraph reverse();
         string toString();
     }
 }
