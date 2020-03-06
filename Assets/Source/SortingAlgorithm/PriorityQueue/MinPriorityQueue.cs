@@ -26,7 +26,7 @@ namespace Algorithms.Sorting
 
         public void insert(T v)
         {
-            if (N == pq.Length) resize(2 * pq.Length);
+            if (N == pq.Length - 1) resize(2 * pq.Length);
             pq[++N] = v;
             swim(N);
         }
@@ -37,7 +37,7 @@ namespace Algorithms.Sorting
             exch(1, N--);
             pq[N + 1] = default(T); // null
             sink(1);
-            if (N > 0 && N == pq.Length / 4) resize(pq.Length / 2);
+            if (N > 0 && N == (pq.Length-1) / 4) resize(pq.Length / 2);
             return max;
         }
 
@@ -83,8 +83,8 @@ namespace Algorithms.Sorting
 
         private void resize(int max)
         {
-            T[] temp = new T[max];
-            for (int i = 0; i < N; i++)
+            T[] temp = new T[max + 1];
+            for (int i = 0; i <= N; i++)
             {
                 temp[i] = pq[i];
             }
