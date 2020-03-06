@@ -23,6 +23,7 @@ namespace Algorithms.Sorting
 
         public void insert(int k, T item)
         {
+            if (N == pq.Length - 1) resize(2 * pq.Length);
             N++;
             qp[k] = N;
             pq[N] = k;
@@ -90,6 +91,7 @@ namespace Algorithms.Sorting
             sink(k);
             keys[pq[N + 1]] = null;
             qp[pq[N + 1]] = -1;
+            if (N > 0 && N == pq.Length / 4) resize(pq.Length / 2);
         }
 
         public T min()
@@ -109,9 +111,30 @@ namespace Algorithms.Sorting
             sink(1);
             keys[pq[N + 1]] = null;
             qp[pq[N + 1]] = -1;
+            if (N > 0 && N == pq.Length / 4) resize(pq.Length / 2);
             return indexOfMin;
         }
-
+        
+        private void resize(int max)
+        {
+            var tempkeys = new object[max + 1]; // boxing
+            var temppq = new int[max + 1];
+            var tempqp = new int[max + 1];
+            var i = 0;
+            for (i = 0; i <= max; i++)
+            {
+                tempqp[i] = -1;
+            }
+            for (i = 0; i <= N; i++)
+            {
+                tempkeys[i] = keys[i];
+                temppq[i] = pq[i];
+                tempqp[i] = qp[i];
+            }
+            keys = tempkeys;
+            pq = temppq;
+            qp = tempqp;
+        }
         public bool isEmpty()
         {
             return N == 0;

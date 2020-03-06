@@ -39,6 +39,25 @@ namespace Algorithms.Sorting
             var res = pq.delMin();
             Assert.AreEqual(res, 3);
         }
+
+        [Test]
+        public void INdexMinPQ_insertResize_NoException()
+        {
+            var pq = new IndexMinPQ<string>(2);
+            System.IndexOutOfRangeException exception = null;
+            try
+            {
+                pq.insert(1, "P");
+                pq.insert(2, "Q");
+                pq.insert(3, "E");
+            }
+            catch(System.IndexOutOfRangeException e)
+            {
+                exception = e;
+            }
+
+            Assert.AreEqual(null, exception);
+        }
     }
 }
 
