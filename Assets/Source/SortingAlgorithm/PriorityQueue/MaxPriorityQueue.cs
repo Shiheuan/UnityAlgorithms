@@ -11,7 +11,7 @@ namespace Algorithms.Sorting
 
         public MaxPriorityQueue(int maxN)
         {
-            pq = new T[maxN];
+            pq = new T[maxN + 1];
         }
 
         public bool isEmpty()
@@ -70,7 +70,7 @@ namespace Algorithms.Sorting
                     j++;
                 }
 
-                if (!less(j, k))
+                if (!less(k, j))
                 {
                     break;// end
                 }

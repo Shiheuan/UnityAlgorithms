@@ -9,7 +9,7 @@ namespace Algorithms.Sorting
 
         public MinPriorityQueue(int maxN)
         {
-            pq = new T[maxN];
+            pq = new T[maxN + 1];
         }
 
         public MinPriorityQueue(): this(4) { }
@@ -72,7 +72,7 @@ namespace Algorithms.Sorting
                     j++;
                 }
 
-                if (!greater(j, k))
+                if (!greater(k, j))
                 {
                     break;// end
                 }
