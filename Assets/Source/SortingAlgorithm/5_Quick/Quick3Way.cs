@@ -4,7 +4,7 @@ namespace Algorithms.Sorting
 {
     public class Quick3Way : BaseSort
     {
-        public static void sort(IComparable[] a)
+        public static new void sort(IComparable[] a)
         {
             shuffle(a);
             sort(a, 0, a.Length - 1);

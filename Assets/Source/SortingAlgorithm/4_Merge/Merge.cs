@@ -6,7 +6,7 @@ namespace Algorithms.Sorting
     {
         protected static IComparable[] aux;
 
-        public static void sort(IComparable[] a)
+        public static new void sort(IComparable[] a)
         {
             aux = new IComparable[a.Length];
             sort(a, 0, a.Length - 1);

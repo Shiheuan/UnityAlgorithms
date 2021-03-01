@@ -4,7 +4,7 @@ namespace Algorithms.Sorting
 {
     public class HeapSort : BaseSort
     {
-        public static void sort(IComparable[] a)
+        public static new void sort(IComparable[] a)
         {
             int N = a.Length;
             var b = new IComparable[N + 1];

@@ -4,7 +4,7 @@ namespace Algorithms.Sorting
 {
     public class Shell : BaseSort
     {
-        public static void sort(IComparable[] a)
+        public static new void sort(IComparable[] a)
         {
             int N = a.Length;
             int h = 1;

@@ -6,7 +6,7 @@ namespace Algorithms.Sorting
     {
         //private static IComparable[] aux; // if do this, will null reference.
         
-        public static void sort(IComparable[] a)
+        public static new void sort(IComparable[] a)
         {
             int N = a.Length;
             aux = new IComparable[N];

@@ -4,7 +4,7 @@ namespace Algorithms.Sorting
 {
     public class Selection : BaseSort
     {
-        public static void sort(IComparable[] a)
+        public static new void sort(IComparable[] a)
         {
             int N = a.Length;
             for (var i = 0; i < N; i++)
